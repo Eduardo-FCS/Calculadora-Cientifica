@@ -46,6 +46,7 @@ function pow() {
 
   return (
     <div className="container">
+      <h1>Calculadora Univas</h1>
       <div className="display">
         <input id="screen" type="text" placeholder="0" />
       </div>
