@@ -1,12 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react'
 import './App.css'
+import { Calculator } from './components/Calculator'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
       <div>
-          <h1>Olá</h1>
+          <Calculator />
       </div>
   )
 }
