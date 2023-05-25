@@ -1,99 +1,153 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 import './Calculator.css';
 
 export const Calculator = () => {
-  function backspc() {
-  // Implemente a lógica desejada
-}
+  const [screenValue, setScreenValue] = useState('');
 
-function fact() {
-  // Implemente a lógica desejada
-}
+  const handleAdd = () => {
+    if (screenValue.slice(-1) !== '+') {
+      setScreenValue((prevValue) => prevValue + '+');
+    }
+  };
+  
+  const handleSubtract = () => {
+    if (screenValue.slice(-1) !== '-') {
+      setScreenValue((prevValue) => prevValue + '-');
+    }
+  };
+  
+  const handleMultiply = () => {
+    if (screenValue.slice(-1) !== '*') {
+      setScreenValue((prevValue) => prevValue + '*');
+    }
+  };
+  
+  const handleDivide = () => {
+    if (screenValue.slice(-1) !== '/') {
+      setScreenValue((prevValue) => prevValue + '/');
+    }
+  };
 
-function sin() {
-  // Implemente a lógica desejada
-}
+  const handleNumber = (number) => {
+    setScreenValue((prevValue) => prevValue + number);
+  };
 
-function pi() {
-  // Implemente a lógica desejada
-}
+  const handleSin = () => {
+    setScreenValue(Math.sin(screenValue));
+  };
 
-function cos() {
-  // Implemente a lógica desejada
-}
+  const handleCos = () => {
+    setScreenValue(Math.cos(screenValue));
+  };
 
-function log() {
-  // Implemente a lógica desejada
-}
+  const handleTan = () => {
+    setScreenValue(Math.tan(screenValue));
+  };
 
-function tan() {
-  // Implemente a lógica desejada
-}
+  const handlePow = () => {
+    setScreenValue(Math.pow(screenValue, 2));
+  };
 
-function sqrt() {
-  // Implemente a lógica desejada
-}
+  const handleSqrt = () => {
+    setScreenValue(Math.sqrt(screenValue));
+  };
 
-function e() {
-  // Implemente a lógica desejada
-}
+  const handleLog = () => {
+    setScreenValue(Math.log(screenValue));
+  };
 
-function pow() {
-  // Implemente a lógica desejada
-}
+  const handlePi = () => {
+    setScreenValue(3.14159265359);
+  };
 
+  const handleE = () => {
+    setScreenValue(2.71828182846);
+  };
+
+  const handleFact = () => {
+    let i, num, f;
+    f = 1;
+    num = parseInt(screenValue);
+    for (i = 1; i <= num; i++) {
+      f = f * i;
+    }
+
+    i = i - 1;
+
+    setScreenValue(f);
+  };
+
+  const handleDecimal = () => {
+    if (!screenValue.includes('.')) {
+      setScreenValue((prevValue) => prevValue + '.');
+    }
+  };
+
+  const handleBackspace = () => {
+    setScreenValue(screenValue.substr(0, screenValue.length - 1));
+  };
 
   return (
     <div className="container">
       <div className="display">
-        <input id="screen" type="text" placeholder="0" />
+        <input id="screen" type="text" placeholder="0" value={screenValue} />
       </div>
 
       <div className="btns">
         <div className="row">
-          <button id="ce" onClick={backspc}>CE</button>
-          <button onClick={fact}>x!</button>
+          <button id="ce" onClick={handleBackspace}>CE</button>
+          <button onClick={handleFact}>x!</button>
           <button className="btn">(</button>
           <button className="btn">)</button>
           <button className="btn">%</button>
-          <button id="ac" onClick={() => { screen.value = ''; }}>AC</button>
+          <button id="ac" onClick={() => { setScreenValue(''); }}>AC</button>
         </div>
 
         <div className="row">
-          <button onClick={sin}>sin</button>
-          <button onClick={pi}>π</button>
-          <button className="btn">7</button>
-          <button className="btn">8</button>
-          <button className="btn">9</button>
-          <button className="btn"><span style={{ fontSize: '25px' }}>÷</span></button>
+          <button onClick={handleSin}>sin</button>
+          <button onClick={handlePi}>π</button>
+          <button className="btn" onClick={() => handleNumber("7")}>7</button>
+          <button className="btn" onClick={() => handleNumber("8")}>8</button>
+          <button className="btn" onClick={() => handleNumber("9")}>9</button>
+          <button className="btn" onClick={handleDivide}>
+            <span style={{ fontSize: '25px' }}>÷</span>
+          </button>
         </div>
 
         <div className="row">
-          <button onClick={cos}>cos</button>
-          <button onClick={log}>log</button>
-          <button className="btn">4</button>
-          <button className="btn">5</button>
-          <button className="btn">6</button>
-          <button className="btn"><span style={{ fontSize: '17.5px' }}>x</span></button>
+          <button onClick={handleCos}>cos</button>
+          <button onClick={handleLog}>log</button>
+          <button className="btn" onClick={() => handleNumber("4")}>4</button>
+          <button className="btn" onClick={() => handleNumber("5")}>5</button>
+          <button className="btn" onClick={() => handleNumber("6")}>6</button>
+          <button className="btn" onClick={handleMultiply}>
+            <span style={{ fontSize: '17.5px' }}>x</span>
+          </button>
         </div>
 
         <div className="row">
-          <button onClick={tan}>tan</button>
-          <button onClick={sqrt}>√</button>
-          <button className="btn">1</button>
-          <button className="btn">2</button>
-          <button className="btn">3</button>
-          <button className="btn"><span style={{ fontSize: '25px' }}>-</span></button>
+          <button onClick={handleTan}>tan</button>
+          <button onClick={handleSqrt}>√</button>
+          <button className="btn" onClick={() => handleNumber("1")}>1</button>
+          <button className="btn" onClick={() => handleNumber("2")}>2</button>
+          <button className="btn" onClick={() => handleNumber("3")}>3</button>
+          <button className="btn" onClick={handleSubtract}>
+            <span style={{ fontSize: '25px' }}>-</span>
+          </button>
         </div>
 
         <div className="row">
-          <button onClick={e}>e</button>
-          <button onClick={pow}>x <span style={{ position: 'relative', bottom: '.5em', right: '.1em', fontSize: '1.9vh' }}>y</span></button>
-          <button className="btn">0</button>
-          <button className="btn"><span style={{ fontSize: '25px' }}>.</span></button>
-          <button id="eval" onClick={() => { screen.value = eval(screen.value); }}>=</button>
-          <button className="btn"><span style={{ fontSize: '25px' }}>+</span></button>
+          <button onClick={handleE}>e</button>
+          <button onClick={handlePow}>x <span style={{ position: 'relative', bottom: '.5em', right: '.1em', fontSize: '1.9vh' }}>y</span></button>
+          <button className="btn" onClick={() => handleNumber("0")}>0</button>
+          <button className="btn" onClick={handleDecimal}>
+            <span style={{ fontSize: '25px' }}>.</span>
+          </button>
+          <button id="eval" onClick={() => { setScreenValue(eval(screenValue)); }}>=</button>
+          <button className="btn" onClick={handleAdd}>
+            <span style={{ fontSize: '25px' }}>+</span>
+          </button>
         </div>
       </div>
     </div>
