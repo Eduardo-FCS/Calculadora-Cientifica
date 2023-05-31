@@ -34,15 +34,15 @@ export const Calculator = () => {
   };
 
   const handleSin = () => {
-    setScreenValue(Math.sin(screenValue));
+    // setScreenValue(Math.sin(screenValue));
   };
 
   const handleCos = () => {
-    setScreenValue(Math.cos(screenValue));
+    // setScreenValue(Math.cos(screenValue));
   };
 
   const handleTan = () => {
-    setScreenValue(Math.tan(screenValue));
+    // setScreenValue(Math.tan(screenValue));
   };
 
   const handlePow = () => {
@@ -54,28 +54,28 @@ export const Calculator = () => {
   };
 
   const handleLog = () => {
-    setScreenValue(Math.log(screenValue));
+    // setScreenValue(Math.log(screenValue));
   };
 
   const handlePi = () => {
-    setScreenValue(3.14159265359);
+    // setScreenValue(3.14159265359);
   };
 
   const handleE = () => {
-    setScreenValue(2.71828182846);
+    // setScreenValue(2.71828182846);
   };
 
   const handleFact = () => {
-    let i, num, f;
-    f = 1;
-    num = parseInt(screenValue);
-    for (i = 1; i <= num; i++) {
-      f = f * i;
-    }
+    // let i, num, f;
+    // f = 1;
+    // num = parseInt(screenValue);
+    // for (i = 1; i <= num; i++) {
+    //   f = f * i;
+    // }
 
-    i = i - 1;
+    // i = i - 1;
 
-    setScreenValue(f);
+    // setScreenValue(f);
   };
 
   const handleDecimal = () => {
@@ -98,16 +98,16 @@ export const Calculator = () => {
       <div className="btns">
         <div className="row">
           <button id="ce" onClick={handleBackspace}>CE</button>
-          <button onClick={handleFact}>x!</button>
-          <button className="btn">(</button>
-          <button className="btn">)</button>
+          <button onClick={handleFact}>T</button>
+          <button className="btn">T</button>
+          <button className="btn">T</button>
           <button className="btn">%</button>
           <button id="ac" onClick={() => { setScreenValue(''); }}>AC</button>
         </div>
 
         <div className="row">
-          <button onClick={handleSin}>sin</button>
-          <button onClick={handlePi}>π</button>
+          <button onClick={handleSin}>T</button>
+          <button onClick={handlePi}>T</button>
           <button className="btn" onClick={() => handleNumber("7")}>7</button>
           <button className="btn" onClick={() => handleNumber("8")}>8</button>
           <button className="btn" onClick={() => handleNumber("9")}>9</button>
@@ -117,8 +117,8 @@ export const Calculator = () => {
         </div>
 
         <div className="row">
-          <button onClick={handleCos}>cos</button>
-          <button onClick={handleLog}>log</button>
+          <button onClick={handleCos}>T</button>
+          <button onClick={handleLog}>T</button>
           <button className="btn" onClick={() => handleNumber("4")}>4</button>
           <button className="btn" onClick={() => handleNumber("5")}>5</button>
           <button className="btn" onClick={() => handleNumber("6")}>6</button>
@@ -128,7 +128,7 @@ export const Calculator = () => {
         </div>
 
         <div className="row">
-          <button onClick={handleTan}>tan</button>
+          <button onClick={handleTan}>T</button>
           <button onClick={handleSqrt}>√</button>
           <button className="btn" onClick={() => handleNumber("1")}>1</button>
           <button className="btn" onClick={() => handleNumber("2")}>2</button>
@@ -139,8 +139,8 @@ export const Calculator = () => {
         </div>
 
         <div className="row">
-          <button onClick={handleE}>e</button>
-          <button onClick={handlePow}>x <span style={{ position: 'relative', bottom: '.5em', right: '.1em', fontSize: '1.9vh' }}>y</span></button>
+          <button onClick={handleE}>T</button>
+          <button onClick={handlePow}>T</button>
           <button className="btn" onClick={() => handleNumber("0")}>0</button>
           <button className="btn" onClick={handleDecimal}>
             <span style={{ fontSize: '25px' }}>.</span>
