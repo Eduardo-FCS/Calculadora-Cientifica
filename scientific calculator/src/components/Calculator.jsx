@@ -5,9 +5,9 @@ import "./Calculator.css"
 export const Calculator = () => {
   const [screenValue, setScreenValue] = useState("")
 
-  const handleSubtract = () => {
-    if (screenValue.slice(-1) !== "-") {
-      setScreenValue((prevValue) => prevValue + "-")
+  const handleMultiply = () => {
+    if (screenValue.slice(-1) !== "*") {
+      setScreenValue((prevValue) => prevValue + "*")
     }
   }
 
@@ -79,7 +79,7 @@ export const Calculator = () => {
           <button className="btn" onClick={() => handleNumber("6")}>
             6
           </button>
-          <button className="btn">
+          <button className="btn" onClick={handleMultiply}>
             <span style={{ fontSize: "17.5px" }}>x</span>
           </button>
         </div>
@@ -96,7 +96,7 @@ export const Calculator = () => {
           <button className="btn" onClick={() => handleNumber("3")}>
             3
           </button>
-          <button className="btn" onClick={handleSubtract}>
+          <button className="btn">
             <span style={{ fontSize: "25px" }}>-</span>
           </button>
         </div>
