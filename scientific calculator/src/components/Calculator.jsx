@@ -4,6 +4,7 @@ import './Calculator.css';
 
 export const Calculator = () => {
   const [screenValue, setScreenValue] = useState('');
+  const [previousResult, setPreviousResult] = useState('');
 
   const handleAdd = () => {
     if (screenValue.slice(-1) !== '+') {
@@ -39,6 +40,15 @@ export const Calculator = () => {
     }
   };
 
+  const handleSqrt = () => {
+    if (previousResult !== '') {
+      setScreenValue(previousResult + Math.sqrt(screenValue));
+      setPreviousResult('');
+    } else {
+      setScreenValue(Math.sqrt(screenValue));
+    }
+  };
+
   const handleBackspace = () => {
     setScreenValue(screenValue.substr(0, screenValue.length - 1));
   };
@@ -47,11 +57,11 @@ export const Calculator = () => {
     try {
       const calculatedResult = eval(screenValue);
       setScreenValue(calculatedResult.toString());
+      setPreviousResult(calculatedResult.toString());
     } catch (error) {
       console.error('Erro ao calcular o resultado:', error);
     }
   };
-
   return (
     <div className="container">
       <h1>Calculadora Univas</h1>
@@ -65,7 +75,7 @@ export const Calculator = () => {
           <button>T</button>
           <button className="btn">T</button>
           <button className="btn">T</button>
-          <button className="btn">T</button>
+          <button onClick={handleSqrt}>√</button>
           <button id="ac" onClick={() => { setScreenValue(''); }}>AC</button>
         </div>
 
