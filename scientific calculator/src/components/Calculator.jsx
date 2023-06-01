@@ -41,12 +41,9 @@ export const Calculator = () => {
   };
 
   const handleSqrt = () => {
-    if (previousResult !== '') {
-      setScreenValue(previousResult + Math.sqrt(screenValue));
-      setPreviousResult('');
-    } else {
-      setScreenValue(Math.sqrt(screenValue));
-    }
+    const sqrtValue = Math.sqrt(parseFloat(screenValue));
+    setPreviousResult(sqrtValue.toString());
+    setScreenValue(sqrtValue.toString());
   };
 
   const handleBackspace = () => {
@@ -62,6 +59,7 @@ export const Calculator = () => {
       console.error('Erro ao calcular o resultado:', error);
     }
   };
+  
   return (
     <div className="container">
       <h1>Calculadora Univas</h1>
